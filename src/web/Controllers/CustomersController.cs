@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gameday.DotNet.Web.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class CustomersController : Controller
     {
         private const string connectionString = "host=localhost;database=gameday;username=gameday;password=lets play;";
@@ -18,20 +20,13 @@ namespace Gameday.DotNet.Web.Controllers
         // GET
         public IEnumerable<Customer> Index()
         {
-            // var sw = new Stopwatch();
-            //
-            // sw.Start();
             return customersData.GetCustomers();
-            // sw.Stop();
-
-            // Response.Headers.Add("ElaspedTime", sw.ElapsedMilliseconds.ToString());
-            // return customers;
         }
 
         [HttpPut("{id}")]
-        public void Put(int id)
+        public bool PutCustomer(long id, [FromBody] MiniCustomer miniCustomer)
         {
-            //customersData.UpdateCustomer(id, miniCustomer.FirstName, miniCustomer.LastName, miniCustomer.Phone);
+            return customersData.UpdateCustomer(id, miniCustomer.FirstName, miniCustomer.LastName, miniCustomer.Phone);
         }
     }
 }

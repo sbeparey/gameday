@@ -72,9 +72,10 @@ namespace Gameday.DotNet.Web.Data
             
             command.CommandText =
                 $"UPDATE customers " +
-                $"SET first_name = {firstName}, " +
-                    $"last_name = {lastName}, " +
-                    $"phone = {phone} " +
+                $"SET first_name = '{firstName}', " +
+                    $"last_name = '{lastName}', " +
+                    $"phone = '{phone}', " +
+                    $"updated_at = '{DateTime.UtcNow}' " +
                 $"WHERE id = {id};";
             
             command.CommandType = CommandType.Text;
