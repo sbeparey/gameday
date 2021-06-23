@@ -40,7 +40,6 @@ namespace Gameday.DotNet.Web
             // app.UseAuthorization();
 
             app.UseRouting();
-            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
