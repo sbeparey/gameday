@@ -5,6 +5,7 @@
     <RootNamespace>Gameday.DotNet.Web</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'gameday_dotnet' " />
   <ItemGroup>
     <PackageReference Include="npgsql" Version="5.0.7" />
   </ItemGroup>

@@ -9,12 +9,12 @@ namespace Gameday.DotNet.Web.Controllers
     {
         private const string connectionString = "host=localhost;database=gameday;username=gameday;password=lets play;";
         private readonly CustomersData customersData;
-        
+
         public CustomersController()
         {
             customersData = new CustomersData(connectionString);
         }
-        
+
         // GET
         public IEnumerable<Customer> Index()
         {
@@ -23,14 +23,15 @@ namespace Gameday.DotNet.Web.Controllers
             // sw.Start();
             return customersData.GetCustomers();
             // sw.Stop();
-            
+
             // Response.Headers.Add("ElaspedTime", sw.ElapsedMilliseconds.ToString());
             // return customers;
         }
 
-        public bool Put(long id, [FromBody] MiniCustomer miniCustomer)
+        [HttpPut("{id}")]
+        public void Put(int id)
         {
-            return customersData.UpdateCustomer(id, miniCustomer.FirstName, miniCustomer.LastName, miniCustomer.Phone);
+            //customersData.UpdateCustomer(id, miniCustomer.FirstName, miniCustomer.LastName, miniCustomer.Phone);
         }
     }
 }
