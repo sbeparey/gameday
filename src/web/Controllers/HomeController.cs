@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using gameday_dotnet.Models;
 
-namespace gameday_dotnet.Controllers
+namespace Gameday.DotNet.Web.Controllers
 {
     public class HomeController : Controller
     {
